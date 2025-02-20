@@ -12,3 +12,7 @@ export const AppLayout = () => {
         </>
     )
 }
+
+
+
+export default AppLayout;

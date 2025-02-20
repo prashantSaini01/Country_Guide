@@ -4,10 +4,10 @@ import { Loader } from "../components/Loader";
 import { CountryCard } from '../components/CountryCard'
 import { SearchFilter } from "../components/SearchFilter";
 
+
 export const Country = () => {
   const [isPending, startTransition] = useTransition();
   const [countries, setCountries] = useState([]);
-
   const [search, setSearch] = useState();
   const [filter, setFilter] = useState("all");
 
@@ -19,8 +19,6 @@ export const Country = () => {
   }, []);
 
   if (isPending) return <Loader />;
-
-  // console.log(search, filter);
 
   const searchCountry = (country) => {
     if (search) {
@@ -34,13 +32,12 @@ export const Country = () => {
     return country.region === filter;
   };
 
-  // here is the main logic
   const filterCountries = countries.filter(
     (country) => searchCountry(country) && filterRegion(country)
   );
 
   return (
-    <section className="country-section">
+    <section className="mx-auto my-16 mb-24">
       <SearchFilter
         search={search}
         setSearch={setSearch}
@@ -50,11 +47,13 @@ export const Country = () => {
         setCountries={setCountries}
       />
 
-      <ul className="grid grid-four-cols">
-        {filterCountries.map((curCountry, index) => {
-          return <CountryCard country={curCountry} key={index} />;
-        })}
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        {filterCountries.map((curCountry, index) => (
+          <CountryCard country={curCountry} key={index} />
+        ))}
       </ul>
     </section>
   );
 };
+
+export default Country;
