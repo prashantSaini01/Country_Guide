@@ -1,5 +1,5 @@
 import {Home} from './pages/Home'
-import {About} from './pages/About';
+import About from './pages/About';
 import {Contact} from './pages/Contact';
 import { Country } from './pages/Country';
 import { ErrorPage } from './pages/ErrorPage';

@@ -1,48 +1,39 @@
-import footerContact from "../../api/footerApi.json";
-import { IoCallSharp } from "react-icons/io5";
-import { MdPlace } from "react-icons/md";
-import { TbMailPlus } from "react-icons/tb";
-
 import { NavLink } from "react-router-dom";
 
 export const Footer = () => {
-  
-
   return (
-    <footer className="footer-section">
-  
-      <div className="copyright-area">
-        <div className="container">
-          <div className="grid grid-two-cols">
-            <div className="copyright-text">
-              <p>
-                Copyright &copy; 2024, All Right Reserved
-                
-              </p>
+    <footer className="bg-gray-900 text-gray-400 text-sm">
+      <div className="bg-gray-800 py-6">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center text-center md:text-left">
+            
+            {/* Copyright Text */}
+            <div className="mb-4 md:mb-0">
+              <p>© 2024 Country Guide. All Rights Reserved.</p>
             </div>
 
-            <div className="footer-menu">
-              <ul>
-                <li>
-                  <NavLink to="/">Home</NavLink>
-                </li>
-
-                <li>
-                  <NavLink
-                    to="https://www.instagram.com/"
-                    target="_blank"
-                  >
-                    Social
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/contact">Contact</NavLink>
-                </li>
-              </ul>
+            {/* Navigation Links */}
+            <div className="flex justify-center md:justify-end space-x-6">
+              <NavLink to="/" className="hover:text-white transition">
+                Home
+              </NavLink>
+              <NavLink
+                to="https://www.instagram.com/"
+                target="_blank"
+                className="hover:text-white transition"
+              >
+                Social
+              </NavLink>
+              <NavLink to="/contact" className="hover:text-white transition">
+                Contact
+              </NavLink>
             </div>
+
           </div>
         </div>
       </div>
     </footer>
   );
 };
+
+export default Footer;
