@@ -12,7 +12,7 @@ export const Header = () => {
     `text-white hover:text-blue-400 transition-colors duration-300 ${isActive ? 'text-blue-400' : ''}`;
 
   return (
-    <header className="bg-gray-900 shadow-lg">
+    <header className="bg-gray-900 shadow-lg fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto">
         <div className="h-16 px-4 flex items-center justify-between">
           <div className="flex-shrink-0">

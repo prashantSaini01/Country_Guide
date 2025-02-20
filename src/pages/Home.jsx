@@ -74,6 +74,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import { useEffect, useRef } from "react";
 import Globe from "globe.gl";
 import About from "./About";
+import { NavLink } from "react-router-dom";
 
 const StarField = () => {
   const particlesRef = useRef(null);
@@ -199,7 +200,7 @@ export const Home = () => {
         <div className="relative z-10 py-24">
           <div className="max-w-7xl mx-auto px-6">
             {/* Content */}
-            <div className="max-w-xl relative z-20">
+            <div className="max-w-xl relative mt-64 z-20">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
                 Explore the World, One Country at a Time.
               </h1>
@@ -207,9 +208,11 @@ export const Home = () => {
                 Discover the history, culture, and beauty of every nation. Sort,
                 search, and filter through countries to find the details you need.
               </p>
-              <button className="flex items-center gap-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 px-6 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300 w-fit shadow-lg hover:shadow-blue-500/25">
-                Start Exploring <FaLongArrowAltRight />
-              </button>
+              <NavLink to="/country">
+  <button className="flex items-center gap-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 px-6 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300 w-fit shadow-lg hover:shadow-blue-500/25">
+    Start Exploring <FaLongArrowAltRight />
+  </button>
+</NavLink>
             </div>
           </div>
         </div>
