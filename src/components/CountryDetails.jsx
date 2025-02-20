@@ -21,50 +21,61 @@ export const CountryDetails = () => {
   if (isPending) return <Loader />;
 
   return (
-    <section className="max-w-7xl mx-auto my-16">
-      <div className="rounded-2xl p-8 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800">
+    <section className="max-w-7xl mx-auto my-16 px-4 sm:px-6 lg:px-8">
+      <div className="rounded-2xl p-8 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 shadow-xl">
         {country && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <img
-              src={country.flags.svg}
-              alt={country.flags.alt}
-              className="w-full rounded-lg object-cover"
-            />
-            <div className="space-y-6">
-              <h2 className="text-3xl font-semibold text-white">
+            {/* Country Flag - Responsive Image */}
+            <div className="flex justify-center items-center">
+              <img
+                src={country.flags.svg}
+                alt={country.flags.alt}
+                className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl rounded-lg object-contain shadow-lg border border-gray-700"
+              />
+            </div>
+
+            {/* Country Info */}
+            <div className="space-y-6 text-white">
+              <h2 className="text-3xl font-bold text-white border-b border-gray-600 pb-2">
                 {country.name.official}
               </h2>
 
               <div className="space-y-4">
-                <InfoItem label="Native Names" 
+                <InfoItem
+                  label="Native Names"
                   value={Object.keys(country.name.nativeName)
                     .map((key) => country.name.nativeName[key].common)
-                    .join(", ")} 
+                    .join(", ")}
                 />
-                <InfoItem label="Population" value={country.population.toLocaleString()} />
+                <InfoItem
+                  label="Population"
+                  value={country.population.toLocaleString()}
+                />
                 <InfoItem label="Region" value={country.region} />
                 <InfoItem label="Sub Region" value={country.subregion} />
                 <InfoItem label="Capital" value={country.capital} />
                 <InfoItem label="Top Level Domain" value={country.tld[0]} />
-                <InfoItem 
-                  label="Currencies" 
+                <InfoItem
+                  label="Currencies"
                   value={Object.keys(country.currencies)
                     .map((curElem) => country.currencies[curElem].name)
-                    .join(", ")} 
+                    .join(", ")}
                 />
-                <InfoItem 
-                  label="Languages" 
+                <InfoItem
+                  label="Languages"
                   value={Object.keys(country.languages)
                     .map((key) => country.languages[key])
-                    .join(", ")} 
+                    .join(", ")}
                 />
               </div>
             </div>
           </div>
         )}
+
+        {/* Back Button */}
         <div className="flex justify-end mt-8">
           <NavLink to="/country">
-            <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+            <button className="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-transform transform hover:scale-105 shadow-lg">
               Go Back
             </button>
           </NavLink>
@@ -73,6 +84,5 @@ export const CountryDetails = () => {
     </section>
   );
 };
-
 
 export default CountryDetails;
